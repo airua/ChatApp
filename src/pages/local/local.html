@@ -21,14 +21,12 @@
 
         <div class="message" [innerHTML]="content.content">
         </div>
-
-        <div class="message-detail">
-          <span class="bold">{{content.user}}</span>
+         <div class="message-detail">
+           <span class="bold">{{content.user}}</span>
         </div>
-      </div>
+         </div>
     </div>
     <div *ngIf="content.sender=='reciever'">
-                      -->
       <div class="chat-bubble left">
 
         <div class="message" [innerHTML]="content.content">
