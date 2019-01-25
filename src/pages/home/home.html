@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      ChatApp
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Nick</ion-label>
+      <ion-input [(ngModel)]="nick" placeholder="Introduce aquí tu nick."></ion-input>
+    </ion-item>
+   
+    <button ion-item color="dark" text-center (click)="irPaginaLocal()">Sala local</button>
+    <button ion-item color="dark" text-center (click)="irPaginaComun()">Sala común</button>
+   <!-- <button ion-item color="primary" text-center (click)="irPaginaLoca()">LOCA</button>
+   -->
+    <button ion-item color="danger" text-center (click)="salirApp()">Salir</button>
+
+  </ion-list>
+</ion-content><

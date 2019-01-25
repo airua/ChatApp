@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-title>Sala común</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="has-header has-footer content-stable">
+
+  <ion-infinite-scroll (infinite)="onScroll($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <div *ngFor="let content of messages" class="message-wrapper">
+
+    <div *ngIf="content.sender=='sender'">
+        
+      <div class="chat-bubble right">
+
+        <div class="message" [innerHTML]="content.content">
+        </div>
+        <div class="message-detail">
+          <span class="bold">{{content.user}}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="content.sender=='reciever'">
+                      
+      <div class="chat-bubble left">
+
+        <div class="message" [innerHTML]="content.content">
+        </div>
+        <div class="message-detail">
+          <span ng-click="viewProfile(message)" class="bold">{{content.user}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="cf"></div>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage(messageForm.value)">
+    <ion-toolbar position="bottom">
+      <ion-textarea placeholder="Escribe aquí tu mensaje..." formControlName="message" [(ngModel)]="message"></ion-textarea>
+      <ion-buttons end>
+        <button ion-button icon-only type="submit" [disabled]="!messageForm.valid">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </form>
+</ion-footer>
