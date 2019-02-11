@@ -1,4 +1,4 @@
-<ion-header>
+ion-header>
   <ion-navbar>
 
     <ion-title>Sala local</ion-title>
@@ -16,29 +16,28 @@
   <div *ngFor="let content of messages" class="message-wrapper">
 
     <div *ngIf="content.sender=='sender'">
-                    
+        
       <div class="chat-bubble right">
 
         <div class="message" [innerHTML]="content.content">
         </div>
-         <div class="message-detail">
-           <span class="bold">{{content.user}}</span>
+        <div class="message-detail">
+          <span class="bold">{{content.user}}</span>
         </div>
-         </div>
+      </div>
     </div>
     <div *ngIf="content.sender=='reciever'">
+                      
       <div class="chat-bubble left">
 
         <div class="message" [innerHTML]="content.content">
         </div>
-
         <div class="message-detail">
           <span ng-click="viewProfile(message)" class="bold">{{content.user}}</span>
         </div>
       </div>
     </div>
     <div class="cf"></div>
-
   </div>
 
 </ion-content>
